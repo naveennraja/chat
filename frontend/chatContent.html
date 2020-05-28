@@ -1,11 +1,74 @@
-<!doctype html>
-<html class="no-js" lang="">
-<head>
-  <meta charset="utf-8">
-  <title>Room Chat</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-     <p>This is a Chatcontent</p>
-</body>
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="utf-8">
+          <title>Room Chat</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+          <link rel="stylesheet" href="css/styles.css"/>
+     </head>
+     <body>
+          <div class="chat-container ui container">
+          <header class="ui clearing segment header-top">
+               <h3 class="ui left floated header" id="room-name">JavaScript</h3>
+               <h3 class="ui right floated header">
+                    <a href="index.html" class="btn"><i class="arrow alternate circle left outline icon white" title="Leave Room"></i></a>
+               </h3>
+          </header>
+          <main class="chat-main">
+               <div class="ui top attached tabular menu">
+                    <a class="item " data-tab="people">Participants</a>
+                    <a class="item active" data-tab="conversation">Chat</a>
+               </div>
+               <div class="ui bottom attached tab segment" data-tab="people" id="client-list">
+                    <div class="ui middle aligned selection list" id="users">
+                         <div class="item">
+                              <div class="content">
+                                   <div class="header">Harvey</div>
+                              </div>
+                         </div>
+                    </div>    
+               </div>
+               <div class="ui bottom attached tab segment active" data-tab="conversation">
+                    <div class="conversation-list">
+                         <div class="ui message">
+                              <div class="header">Harvey
+                                   <div class="ui label time">Medium</div>
+                              </div>
+                              <p>I don' get lucky. I make my own luck.</p>
+                         </div>
+                    </div>
+                    <div class="chat-form-container">
+                         <form class="ui form" id="chat-form">
+                              <div class="field">
+                                   <div class="ui action input">
+                                        <input id="message"  type="text"  placeholder="Message" required autocomplete="off"/>                                        
+                                        <button class="ui button telegram plane icon"> <i class="telegram plane icon"></i>Send</button>
+                                   </div>
+                              </div>
+                         </form>
+                    </div>
+                </div>
+          </main>
+          </div>
+          <div class="ui modal small">
+          <div class="header"></div>
+               <div class="content">
+                    <p class="poup-message">Please edit your message</p>                    
+                    <div class="ui form">
+                         <div class="field">
+                              <input id="editMessage"  type="text" required autocomplete="off"/> 
+                         </div>
+                    </div>
+               </div>
+               <div class="actions">
+                    <div class="ui approve teal button Save">Save</div>
+                    <div class="ui button red Delete">Delete</div>
+                    <div class="ui cancel button">Cancel</div>
+               </div>
+          </div>
+          <script src="js/vendor/jquery-3.4.1.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+          <script src="js/main.js"></script>        
+     </body>
 </html>

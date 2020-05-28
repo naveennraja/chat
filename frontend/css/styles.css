@@ -1,0 +1,57 @@
+/*Header Styles*/
+.header-top.ui.segment {
+     border: none;
+     box-shadow: none;
+     margin-bottom: 0;
+     background-color:#ebebeb;
+ }
+ .header-top.ui.segment h3,
+ .header-top.ui.segment a,
+ .header-top.ui.segment i{
+      color: #495263;
+ }
+ #room-name {
+      text-transform: capitalize;
+ }
+ /* Login Container Styles*/
+ #login-container.grid {
+      height: 100%;
+      position: absolute;
+      top:0;left:0;bottom:0;right:0;
+      margin:auto;
+ }
+ #login-container  .column {
+      max-width: 450px;
+      min-width: 250px;
+ }
+ 
+ /* Chat Conversation Styles*/
+ .chat-container{
+      min-width: 250px;
+ }
+ .conversation-list {
+      height:75vh;
+      overflow-y: auto;
+ }
+
+ .ui.tabular.menu .item {
+     padding: 1rem 4.5rem;
+     background-color: #ebebeb;
+ }
+ .message-content {
+      clear:both;
+ }
+ .action-list i {
+      cursor: pointer;
+ }
+ .ui.label {
+      background:none;
+ }
+ .ui.message {
+      background: none;
+      margin:0;
+      box-shadow:none;
+      width:100%;   
+      border-bottom: 1px solid #22242638;
+ }
+ 

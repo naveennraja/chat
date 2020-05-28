@@ -4,8 +4,37 @@
   <meta charset="utf-8">
   <title>Room Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-     <p>This is a login</p>
+  <div class="ui container">
+  <div class="ui middle aligned center aligned grid" id="login-container">
+    <div class="column">
+      <h2 class="ui image header"> <div class="content"> Join the room </div>
+      </h2>
+      <form action="chatContent.html" method="get" class="ui large form">
+        <div class="ui stacked secondary  segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+                <input type="text" name="username" id="username" placeholder="Enter your name..." required autocomplete="off" />
+            </div>
+          </div>
+          <div class="field">
+              <select  name="roomname"  class="ui fluid dropdown">
+                <option value="frontend">Front end</option>
+              </select>
+            </div>
+          <button class="ui fluid large teal submit button">Enter Room</button>
+        </div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+  </div>
+  </div>
+  <script src="js/vendor/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>
