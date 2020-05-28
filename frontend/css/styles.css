@@ -29,14 +29,23 @@
  .chat-container{
       min-width: 250px;
  }
+ /*Grouping of the same */
+ #client-list,
  .conversation-list {
       height:75vh;
       overflow-y: auto;
  }
 
  .ui.tabular.menu .item {
-     padding: 1rem 4.5rem;
+     padding: 2rem 4.5rem;
+     width:50%;
+     text-align:center;
+     display:inline-block;
      background-color: #ebebeb;
+ }
+ .ui.tabular.menu .item  span{
+     background:none;
+     color: #495263;
  }
  .message-content {
       clear:both;

@@ -13,7 +13,7 @@ const {clientJoin,
        getAllClients
      }  = require("./backend/controllers/clientsController");
 
-     
+
 // Setitng the directory to the file
 app.use(express.static(path.join(__dirname,"frontend")));
 
@@ -43,19 +43,19 @@ io.on("connection",socket => {
      socket.on("editMessage",(data) =>{
           const currentClient =  getCurrentClient(socket.id);
                io.to(currentClient.roomname).emit("editMessage",dataFormat(currentClient.username,data.msg,data.msgId,data.time));
-               socket.broadcast.to(currentClient.roomname).emit('message',dataFormat('',`${currentClient.username} has edited a message`));
+               //socket.broadcast.to(   currentClient.roomname).emit('message',dataFormat('',`${currentClient.username} has edited a message`));
      });
      // Deleting message
      socket.on("deleteMessage",(data) =>{
            const currentClient =  getCurrentClient(socket.id);
                 io.to(currentClient.roomname).emit("deleteMessage",dataFormat(currentClient.username,data.msg,data.msgId,data.time));
-                socket.broadcast.to(currentClient.roomname).emit('message',dataFormat('',`${currentClient.username} has deleted a message`));
+                //socket.broadcast.to(currentClient.roomname).emit('message',dataFormat('',`${currentClient.username} has deleted a message`));
      });
   
      socket.on("disconnect",() => {
           const currentClient =  clientLeave(socket.id);
           if(currentClient){
-               io.to(currentClient.roomname).emit("message",messageData('',` ${currentClient.username} has left the chat`));
+               io.to(currentClient.roomname).emit("message",dataFormat('',` ${currentClient.username} has left the chat`));
                clientList(currentClient.roomname)
           }
      });
