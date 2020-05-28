@@ -8,8 +8,12 @@ const server = http.createServer(app);
 const dataFormat = require("./backend/dataFormat/dataFormat");
 const io =socketio(server);
 const {clientJoin,
-       clientLeave
+       clientLeave,
+       getCurrentClient,
+       getAllClients
      }  = require("./backend/controllers/clientsController");
+
+     
 // Setitng the directory to the file
 app.use(express.static(path.join(__dirname,"frontend")));
 
@@ -25,7 +29,9 @@ io.on("connection",socket => {
                socket.emit("message",dataFormat('', `Welcome ${client.username} to  ${client.roomname} room`));
                //Broadcasting when client  is connected 
                socket.broadcast.to(client.roomname)
-               .emit('message',dataFormat('',`${client.username} has joined the chat`));     
+               .emit('message',dataFormat('',`${client.username} has joined the chat`));
+                // When new client join the chat update
+               clientList(client.roomname)
      });
 
       //If the message is recieved 
@@ -47,9 +53,18 @@ io.on("connection",socket => {
      });
   
      socket.on("disconnect",() => {
-          const currentClient =  clientLeave(socket.id);       
-          console.log("Connection is closed ",currentClient);   
+          const currentClient =  clientLeave(socket.id);
+          if(currentClient){
+               io.to(currentClient.roomname).emit("message",messageData('',` ${currentClient.username} has left the chat`));
+               clientList(currentClient.roomname)
+          }
      });
+      function clientList(roomname) {
+          io.to(roomname).emit('allClients',{
+               roomname: roomname,
+               clients: getAllClients(roomname)
+          });
+     }
 
 });
 

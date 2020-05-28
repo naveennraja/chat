@@ -43,6 +43,8 @@
           socket.emit("sendMessage",data); // Sending a message to the server
           $("#message").val("").focus();
      });
+     /** common functions */
+     
 }());
      
 
