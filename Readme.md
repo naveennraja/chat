@@ -25,4 +25,4 @@ socket.io
 
 ## Dev Dependencies
 nodemon
-socket.io
+
