@@ -4,6 +4,7 @@
      box-shadow: none;
      margin-bottom: 0;
      background-color:#ebebeb;
+     border-radius:0 !important; /*Overriding library style */
  }
  .header-top.ui.segment h3,
  .header-top.ui.segment a,
@@ -24,28 +25,35 @@
       max-width: 450px;
       min-width: 250px;
  }
- 
  /* Chat Conversation Styles*/
  .chat-container{
       min-width: 250px;
  }
  /*Grouping of the same */
+ .ui.bottom.attached.tab.segment{
+      border:none;
+ }
  #client-list,
  .conversation-list {
-      height:75vh;
+      height:74vh;
       overflow-y: auto;
  }
-
  .ui.tabular.menu .item {
-     padding: 2rem 4.5rem;
+     padding: 1rem 0;
      width:50%;
      text-align:center;
      display:inline-block;
      background-color: #ebebeb;
+     border:none;
+     border-radius:0 !important; /*Overriding library style*/
  }
  .ui.tabular.menu .item  span{
-     background:none;
+     background: none;
      color: #495263;
+     margin-left:0;
+ }
+ .ui.header .ui.label {
+      margin:0;
  }
  .message-content {
       clear:both;

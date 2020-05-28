@@ -29,8 +29,8 @@
           //Editing the message 
           socket.on("editMessage",(data)=>{
                const date = new Date();
-               $(`*[data-key="${data.msgId}"]`).find("span.label")
-               .text(`Edited Message at ${date.getHours()} : ${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
+               $(`*[data-key="${data.msgId}"]`).find(".time")
+               .text(`${date.getHours()} : ${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
                $(`*[data-key="${data.msgId}"]`).find(".message-content").text(data.msg);
                //console.log("edit message ",data);
                
